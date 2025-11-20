@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "prime-cosmos-478803-t9",
+  "private_key_id": "effc4ca5f38e06d4475601235269351d95421fe6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDG1DgOgurPGnZj\nlg633qAQzeSyw+eG2Y21FU2NN8Z2iT21pkkk33pJjgWdjwIqNt//BpWqnaQwa0F4\nvtr01gAp89AoOac1SuLG3C6cTGX/ZYFtFRGCoMb6Yg8PfWpIs/jD43wnJ8rhAWe9\n9xDN/3zkjTVR9MptXOQQ1ymd2WoLcG6cI8sVpmWwLmDBDqD2E+2H5r2G0kxJiLHn\nmKe+ySZdfOTkAwyWak8u8bqZi1VMN7WzoM40BtDz9Zroate12hPnFNue5fr99vYj\n39yxR4RkgjP0I0XjmADawY5FXiJ8eEQjm/ulatmhiLE58MLBGYgUUu0nq9qOArRB\nnzHiyG0DAgMBAAECggEAXx5afPK7k32E4qqAew0phTCCttTKt/Pu+5Dn62Wh78ZD\nO9oDxvyUe4jSfehS8FAVQ+NqCVfmGvXMug+QHy4boPZPgFboe7HKILloIQTZjN+K\nFd3M5TG2T0VHEDF+/a3/lfMHy5GZWKA7+aCvLOWLYal+NymFB+G3B6lvcuD2fuag\nPBcxlEKUrhrG3uKYXoRnBS4MujThVrtDzezvoWqwZXY2Ke/FELpGvh78i0raI+ra\nwWpi1PSOy+zQWmS+xWpavN+q+jAQqIphpJoGnf8sR0MiSMpTOndwpDW/jwnAzH/z\nrAdrvl/zEctnW0HnoZ0nYsrHfzzprZ68zKVVSKlnJQKBgQDptKpvzqGbZaeMSO8f\nr60c60zgIBGwSIXIX0M7JlpatU94+7uNpoBoK32PowjUACA4J8OlG9EkdoMblA34\n5q+piOdZn/NtLNPPZD11D4FbyGvwmsa+H+gC2o1J0uyeYxoTbf7myKztLdzVpWaL\ny8aESuM0djpTJLBUK9Ho13aj3QKBgQDZy9PDuSJuMKW6M02EmwHkeh5mO2Tp4xCJ\nHbj5XXDJCOCRx86HM0xmUGzoWD+QJcbJvvw07WFB9nBFJHsrjYU4Oj1ElAtEaz9P\ny5Y+uVg8eN30klh55LXXeNRwLGyTz50Rt++TmKaLAZIepvAmcalxkZOpki35hi6z\nwEMRtWU2XwKBgHgcRCQmXGRTQGMW8N6mGSBtxhrCIJUrEKbEXvc9ZN6NpISXS/Mn\nCYOAJo31yom6btStix2GSFynFAbOdsffN5S4Kb6kOCV6DnneGL/a8i7LuL31rgL0\nvvcIf+jbIITehf5KX+EYbdeP5Jlg4m0ik6pWGqNRx/QHPSBlTQKQCgd5AoGALtrF\nxP6IJLJ8hNFSpOt//boz3gR7EkISJZ1qVONAR0+MmHAmwzlK/1vgAiAyFH28BVz7\n/xruaHVu88EEans4pL8KvT0oK2DzLuR6fyX6kI/kGCB/vkFwyVkqQrOb7DSm8s/i\nT5twgMkmuUdqtKqRLGiIHtve3iZ615rOEvo2OvsCgYBsN2VgTuMl+XL/K/QqTNcn\n52IVpfA3ndTJuqwc6D1/gLeYeXnu3JqEDTTuJgT9HCOCZQnp3DnRaezsVWyJoFid\nIJyMHR8MQwMrBqQM3/0Q8hweTvGMmcPp0zce0N23GjeVhRgAZw38CwYVES5vBk25\n4w/UoT5cxtWJyeBeOzn6EQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "sheets-01@prime-cosmos-478803-t9.iam.gserviceaccount.com",
+  "client_id": "103933763335527407125",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sheets-01%40prime-cosmos-478803-t9.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
