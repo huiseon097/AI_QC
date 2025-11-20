@@ -1,0 +1,351 @@
+import React, { useState } from 'react';
+import { Camera, Heart, Activity, Bell, TrendingUp, FileText, Upload, AlertCircle, CheckCircle, Sparkles, PawPrint } from 'lucide-react';
+
+export default function PetHealthCare() {
+  const [activeTab, setActiveTab] = useState('home');
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const [analysisResult, setAnalysisResult] = useState(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setUploadedImage(e.target.result);
+        analyzeImage();
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const analyzeImage = () => {
+    setIsAnalyzing(true);
+    setTimeout(() => {
+      setAnalysisResult({
+        diagnosis: "결막 충혈 의심",
+        confidence: 83,
+        healthScore: 74,
+        causes: [
+          "눈 건조 증상",
+          "먼지 자극 가능성",
+          "알러지 반응 의심"
+        ],
+        actions: [
+          "인공눈물 사용 권장",
+          "습도 조절 및 내일 재촬영 추천"
+        ]
+      });
+      setIsAnalyzing(false);
+    }, 2000);
+  };
+
+  const features = [
+    {
+      icon: "📸",
+      title: "이미지 진단",
+      desc: "눈, 코, 피부 체크"
+    },
+    {
+      icon: "🏃",
+      title: "행동 분석",
+      desc: "식사, 수면, 운동량"
+    },
+    {
+      icon: "🔔",
+      title: "건강 알림",
+      desc: "이상 시 즉시 알림"
+    },
+    {
+      icon: "📈",
+      title: "장기 관리",
+      desc: "맞춤형 케어 제공"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-50 to-pink-50">
+      {/* Floating Decorations */}
+      <div className="fixed top-20 left-10 text-6xl opacity-20 animate-bounce">🐶</div>
+      <div className="fixed top-40 right-20 text-5xl opacity-20 animate-bounce" style={{animationDelay: '0.5s'}}>🐱</div>
+      <div className="fixed bottom-20 left-20 text-4xl opacity-20 animate-bounce" style={{animationDelay: '1s'}}>🐾</div>
+
+      {/* Header */}
+      <header className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50 border-b-4 border-orange-300">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3 cursor-pointer group" onClick={() => setActiveTab('home')}>
+            <div className="w-14 h-14 bg-gradient-to-br from-orange-400 via-pink-400 to-purple-400 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <PawPrint className="w-8 h-8 text-white" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-black bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+                개냥보감
+              </h1>
+              <p className="text-xs text-gray-500">우리 아이 건강 지킴이</p>
+            </div>
+          </div>
+          <nav className="flex gap-4">
+            <button 
+              onClick={() => setActiveTab('home')} 
+              className={`px-4 py-2 rounded-full font-bold transition-all ${activeTab === 'home' ? 'bg-gradient-to-r from-orange-400 to-pink-400 text-white shadow-lg scale-105' : 'bg-white text-gray-600 hover:bg-orange-100'}`}
+            >
+              🏠 홈
+            </button>
+            <button 
+              onClick={() => setActiveTab('check')} 
+              className={`px-4 py-2 rounded-full font-bold transition-all ${activeTab === 'check' ? 'bg-gradient-to-r from-orange-400 to-pink-400 text-white shadow-lg scale-105' : 'bg-white text-gray-600 hover:bg-orange-100'}`}
+            >
+              💊 건강체크
+            </button>
+            <button 
+              onClick={() => setActiveTab('guide')} 
+              className={`px-4 py-2 rounded-full font-bold transition-all ${activeTab === 'guide' ? 'bg-gradient-to-r from-orange-400 to-pink-400 text-white shadow-lg scale-105' : 'bg-white text-gray-600 hover:bg-orange-100'}`}
+            >
+              📖 가이드
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 py-12 relative z-10">
+        {activeTab === 'home' && (
+          <>
+            {/* Hero Section */}
+            <section className="text-center mb-16 animate-fade-in">
+              <div className="inline-block mb-4">
+                <span className="text-7xl animate-bounce inline-block">🐕</span>
+                <span className="text-6xl">💕</span>
+                <span className="text-7xl animate-bounce inline-block" style={{animationDelay: '0.3s'}}>🐈</span>
+              </div>
+              <h2 className="text-6xl font-black text-gray-800 mb-4 leading-tight">
+                우리 아이<br />
+                <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+                  건강 걱정 끝!
+                </span>
+              </h2>
+              <p className="text-2xl text-gray-600 mb-8 font-semibold">
+                사진 한 장으로 AI가 건강을 체크해요 ✨
+              </p>
+              <button 
+                onClick={() => setActiveTab('check')}
+                className="bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 text-white px-10 py-5 rounded-full text-xl font-black shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all animate-pulse"
+              >
+                🚀 지금 바로 시작하기
+              </button>
+            </section>
+
+            {/* Features Grid */}
+            <section className="mb-16">
+              <h3 className="text-4xl font-black text-center text-gray-800 mb-4">
+                💫 이런 게 가능해요!
+              </h3>
+              <p className="text-center text-gray-600 mb-12 text-lg">우리 개냥보감이 도와드려요</p>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {features.map((feature, idx) => (
+                  <div 
+                    key={idx} 
+                    className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 hover:-rotate-2 border-4 border-orange-200"
+                  >
+                    <div className="text-6xl mb-4 text-center">{feature.icon}</div>
+                    <h4 className="text-xl font-black text-gray-800 mb-2 text-center">{feature.title}</h4>
+                    <p className="text-gray-600 text-center">{feature.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Benefits */}
+            <section className="bg-gradient-to-r from-orange-100 via-pink-100 to-purple-100 rounded-3xl p-10 shadow-2xl border-4 border-white">
+              <h3 className="text-4xl font-black text-center text-gray-800 mb-8">
+                🎉 이런 효과가 있어요!
+              </h3>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="bg-white p-6 rounded-2xl text-center shadow-lg transform hover:scale-105 transition">
+                  <div className="text-6xl mb-2">📊</div>
+                  <div className="text-5xl font-black text-orange-500 mb-2">40%</div>
+                  <p className="text-gray-700 font-bold">질병 조기 발견</p>
+                </div>
+                <div className="bg-white p-6 rounded-2xl text-center shadow-lg transform hover:scale-105 transition">
+                  <div className="text-6xl mb-2">💰</div>
+                  <div className="text-5xl font-black text-pink-500 mb-2">30%</div>
+                  <p className="text-gray-700 font-bold">병원비 절감</p>
+                </div>
+                <div className="bg-white p-6 rounded-2xl text-center shadow-lg transform hover:scale-105 transition">
+                  <div className="text-6xl mb-2">😊</div>
+                  <div className="text-5xl font-black text-purple-500 mb-2">95%</div>
+                  <p className="text-gray-700 font-bold">만족도</p>
+                </div>
+              </div>
+            </section>
+          </>
+        )}
+
+        {activeTab === 'check' && (
+          <section className="max-w-3xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-5xl font-black text-gray-800 mb-2">
+                💊 건강 체크
+              </h2>
+              <p className="text-xl text-gray-600">우리 아이가 어디 아픈지 확인해봐요</p>
+            </div>
+            
+            {!uploadedImage ? (
+              <div className="bg-white rounded-3xl p-12 shadow-2xl text-center border-4 border-orange-200">
+                <div className="text-8xl mb-6 animate-bounce">📸</div>
+                <h3 className="text-3xl font-black text-gray-800 mb-4">
+                  사진을 올려주세요!
+                </h3>
+                <p className="text-gray-600 mb-8 text-lg">
+                  눈, 코, 피부가 잘 보이는 사진이면 좋아요 🐶🐱
+                </p>
+                <label className="bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 text-white px-10 py-5 rounded-full text-xl font-black shadow-xl hover:shadow-2xl transform hover:scale-110 transition-all cursor-pointer inline-flex items-center gap-3">
+                  <Upload className="w-6 h-6" />
+                  사진 선택하기
+                  <input 
+                    type="file" 
+                    accept="image/*" 
+                    onChange={handleImageUpload}
+                    className="hidden"
+                  />
+                </label>
+              </div>
+            ) : (
+              <div className="bg-white rounded-3xl p-8 shadow-2xl border-4 border-orange-200">
+                <div className="relative">
+                  <img 
+                    src={uploadedImage} 
+                    alt="Uploaded pet" 
+                    className="w-full max-h-96 object-contain rounded-3xl mb-6 border-4 border-pink-200"
+                  />
+                  <button
+                    onClick={() => {
+                      setUploadedImage(null);
+                      setAnalysisResult(null);
+                    }}
+                    className="absolute top-4 right-4 bg-white text-gray-700 px-4 py-2 rounded-full font-bold shadow-lg hover:bg-gray-100 transition"
+                  >
+                    ✕ 다시하기
+                  </button>
+                </div>
+                
+                {isAnalyzing ? (
+                  <div className="text-center py-12">
+                    <div className="text-8xl mb-4 animate-bounce">🔍</div>
+                    <div className="text-6xl mb-4 animate-spin">⏳</div>
+                    <p className="text-2xl text-gray-700 font-bold">AI가 열심히 분석 중...</p>
+                  </div>
+                ) : analysisResult && (
+                  <div className="space-y-6">
+                    <div className="p-6 bg-gradient-to-r from-yellow-100 to-orange-100 rounded-3xl border-4 border-yellow-300 shadow-lg">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-3">
+                          <span className="text-4xl">⚠️</span>
+                          <div>
+                            <p className="text-2xl font-black text-gray-800">{analysisResult.diagnosis}</p>
+                            <p className="text-lg text-gray-600 font-semibold">신뢰도: {analysisResult.confidence}%</p>
+                          </div>
+                        </div>
+                        <div className="bg-white px-6 py-3 rounded-2xl shadow-lg">
+                          <div className="text-4xl font-black text-orange-500">{analysisResult.healthScore}점</div>
+                          <p className="text-sm text-gray-600 font-bold">건강점수</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-6 bg-gradient-to-r from-blue-100 to-purple-100 rounded-3xl border-4 border-blue-300 shadow-lg">
+                      <h4 className="text-xl font-black text-gray-800 mb-4 flex items-center gap-2">
+                        <span className="text-3xl">🔎</span>
+                        원인이 뭘까요?
+                      </h4>
+                      <ul className="space-y-3">
+                        {analysisResult.causes.map((cause, idx) => (
+                          <li key={idx} className="flex items-start gap-3 bg-white p-4 rounded-2xl shadow">
+                            <span className="text-2xl font-black text-blue-500">{idx + 1}</span>
+                            <span className="text-lg text-gray-700 font-semibold">{cause}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="p-6 bg-gradient-to-r from-green-100 to-teal-100 rounded-3xl border-4 border-green-300 shadow-lg">
+                      <h4 className="text-xl font-black text-gray-800 mb-4 flex items-center gap-2">
+                        <span className="text-3xl">💡</span>
+                        이렇게 해보세요!
+                      </h4>
+                      <ul className="space-y-3">
+                        {analysisResult.actions.map((action, idx) => (
+                          <li key={idx} className="flex items-start gap-3 bg-white p-4 rounded-2xl shadow">
+                            <span className="text-2xl">✅</span>
+                            <span className="text-lg text-gray-700 font-semibold">{action}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </section>
+        )}
+
+        {activeTab === 'guide' && (
+          <section className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-5xl font-black text-gray-800 mb-2">
+                📖 사용 가이드
+              </h2>
+              <p className="text-xl text-gray-600">이렇게 사용하면 돼요!</p>
+            </div>
+            
+            <div className="space-y-6">
+              {[
+                { step: 1, emoji: "📸", title: "사진 촬영", desc: "눈, 코, 피부가 잘 보이게 찍어요" },
+                { step: 2, emoji: "📤", title: "사진 업로드", desc: "건강체크 메뉴에서 사진을 올려요" },
+                { step: 3, emoji: "🤖", title: "AI 분석", desc: "AI가 2~3초 안에 분석해요" },
+                { step: 4, emoji: "📊", title: "결과 확인", desc: "진단 결과와 건강 점수를 봐요" },
+                { step: 5, emoji: "💊", title: "조치 실행", desc: "AI가 알려준 대로 해봐요" },
+                { step: 6, emoji: "🏥", title: "경과 관찰", desc: "나아지지 않으면 병원에 가요" }
+              ].map((item, idx) => (
+                <div key={idx} className="bg-white p-6 rounded-3xl shadow-lg flex items-start gap-4 border-4 border-orange-200 transform hover:scale-105 transition">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-pink-400 rounded-full flex items-center justify-center text-white font-black text-2xl shadow-lg">
+                      {item.step}
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-black text-gray-800 mb-2 flex items-center gap-2">
+                      <span className="text-3xl">{item.emoji}</span>
+                      {item.title}
+                    </h3>
+                    <p className="text-lg text-gray-600 font-semibold">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 p-8 bg-gradient-to-r from-yellow-100 to-orange-100 border-4 border-yellow-300 rounded-3xl shadow-lg">
+              <h3 className="text-2xl font-black text-gray-800 mb-3 flex items-center gap-2">
+                <span className="text-4xl">⚠️</span>
+                꼭 기억하세요!
+              </h3>
+              <p className="text-lg text-gray-700 font-semibold">
+                개냥보감은 조기 건강 이상을 찾는 도우미예요. 
+                심각한 증상이나 응급 상황에서는 꼭 동물병원에 가세요! 🏥
+              </p>
+            </div>
+          </section>
+        )}
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 text-white mt-20 py-8">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <div className="text-4xl mb-3">🐾</div>
+          <p className="text-xl font-bold">© 2025 개냥보감</p>
+          <p className="text-sm opacity-80">우리 아이를 위한 AI 건강 지킴이</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
